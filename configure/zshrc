@@ -1,0 +1,45 @@
+# theme
+ZSH_THEME="robbyrussell"
+
+# export path
+export ZSH="/home/tolunay/.oh-my-zsh"
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/opt/chromedriver_linux
+
+# alias
+alias speedtest='cd /opt/speedtest/ && ./speedtest'
+alias c="clear"
+alias ..="cd ../"
+alias ...="cd ../.."
+alias ..ls="cd ../ && ls"
+alias ..ll="cd ../ && ll"
+alias ..la="cd ../ && la"
+alias rb="reboot"
+alias snow="shutdown now"
+alias stime="shutdown -h"
+alias sc="shutdown -c"
+alias ni="npm install"
+alias nrs="npm run start"
+alias nrd="npm run dev"
+alias nrb="npm run build"
+alias nrt="npm run test"
+
+# plugins
+plugins=(git extract web-search yum git-extras docker vagrant colored-man-pages zsh-syntax-highlighting zsh-autosuggestions autoenv celery)
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# conda initialize
+__conda_setup="$('/home/tolunay/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/tolunay/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/tolunay/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/tolunay/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+
+source $ZSH/oh-my-zsh.sh
