@@ -1,0 +1,65 @@
+{
+  "editor.fontFamily": "JetBrains Mono",
+  // "editor.fontFamily": "Fira Code",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 14,
+  "editor.fontWeight": "500",
+  "editor.minimap.enabled": false,
+  "editor.cursorWidth": 3,
+  "editor.cursorBlinking": "smooth",
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "editor.mouseWheelZoom": true,
+  "editor.letterSpacing": 0.1,
+  "editor.suggestSelection": "first",
+  "editor.renameOnType": true,
+  "editor.renderLineHighlight": "all",
+  "explorer.sortOrder": "type",
+  "window.title": "${dirty} ${activeEditorMedium} ${separator} [${rootName}]",
+  "window.titleBarStyle": "custom",
+  "window.zoomLevel": 0,
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.editor.highlightModifiedTabs": true,
+  "files.trimFinalNewlines": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "todo-tree.tree.showScanModeButton": false,
+  "importCost.smallPackageSize": 50,
+  "importCost.mediumPackageSize": 100,
+  "importCost.smallPackageColor": "#7cc36e",
+  "importCost.mediumPackageColor": "#f0b43c",
+  "importCost.largePackageColor": "#d44e40",
+  "importCost.bundleSizeDecoration": "both",
+  "importCost.showCalculatingDecoration": true,
+  "bookmarks.navigateThroughAllFiles": true,
+  "bookmarks.saveBookmarksInProject": true,
+  "bookmarks.sideBar.expanded": true,
+  // "editor.snippetSuggestions": "inline",
+  // "editor.acceptSuggestionOnEnter": "on",
+  // "editor.formatOnPaste": true
+  // "editor.formatOnSave": true
+  // "files.trimTrailingWhitespace": false
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "octref.vetur"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+  },
+  "sync.gist": "9339cbddf768f073096ec08c5de62ae6"
+}
