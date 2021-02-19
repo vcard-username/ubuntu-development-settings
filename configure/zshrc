@@ -1,45 +1,65 @@
-# theme
-ZSH_THEME="robbyrussell"
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 # export path
-export ZSH="/home/tolunay/.oh-my-zsh"
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:/opt/chromedriver_linux
+export ZSH="/home/tec/.oh-my-zsh"
+# export PATH=$PATH:/usr/local/go/bin
+# export PATH=$PATH:/opt/chromedriver_linux
 
-# alias
-alias speedtest='cd /opt/speedtest/ && ./speedtest'
+# THEME
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+# ALIAS
+## shortcuts bash, folder.
 alias c="clear"
+alias de="cd ~/Desktop"
+alias dow="cd ~/Downloads"
+alias fol="nautilus"
+alias del="gio trash"
 alias ..="cd ../"
 alias ...="cd ../.."
-alias ..ls="cd ../ && ls"
-alias ..ll="cd ../ && ll"
 alias ..la="cd ../ && la"
+alias ..ll="cd ../ && ll"
+alias ..ls="cd ../ && ls"
+
+## shutdown, reboot and timing close
 alias rb="reboot"
-alias snow="shutdown now"
-alias stime="shutdown -h"
 alias sc="shutdown -c"
+alias sn="shutdown now"
+alias st="shutdown -h"
+
+## program
+alias speedtest='cd /opt/speedtest/ && ./speedtest'
+
+## npm
 alias ni="npm install"
-alias nrs="npm run start"
-alias nrd="npm run dev"
 alias nrb="npm run build"
+alias nrd="npm run dev"
+alias nrs="npm run start"
 alias nrt="npm run test"
+alias nrsr="npm run serve"
 
 # plugins
 plugins=(git extract web-search yum git-extras docker vagrant colored-man-pages zsh-syntax-highlighting zsh-autosuggestions autoenv celery)
 
+# fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# conda initialize
-__conda_setup="$('/home/tolunay/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# Conda setup
+__conda_setup="$('/home/tec/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/tolunay/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/tolunay/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/tec/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/tec/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/tolunay/anaconda3/bin:$PATH"
+        export PATH="/home/tec/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 
 source $ZSH/oh-my-zsh.sh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
