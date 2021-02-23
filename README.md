@@ -68,10 +68,10 @@
         * ```git config --global user.name "<your_name>"```
       * *GitHub SSH*
         * ```ssh-keygen -t rsa -b 4096 -C "<YOUR_GITHUB_EMAIL>"```
-        * > __Enter file in which to save the key:__ ```/home/<PC_NAME>/.ssh/<CREATE_SSH_NAME>```
-          * SAMPLE: ```/home/wod/.ssh/github```
-          * YOU HAVE TO SPECIFY THE FILE LOCATION! (/home/...)
-        * > Enter passphrase: ```<SSH_PASSWORD>```
+          * > __Enter file in which to save the key:__ ```/home/<PC_NAME>/.ssh/<CREATE_SSH_NAME>```
+            * SAMPLE: ```/home/wod/.ssh/github```
+            * YOU HAVE TO SPECIFY THE FILE LOCATION! (/home/...)
+          * > Enter passphrase: ```<SSH_PASSWORD>```
         * ```eval ssh-agent -s```
         * ```ssh-add ~/.ssh/<SSH_NAME>```
         * ```cat ~/.ssh/<SSH_NAME>.pub```
