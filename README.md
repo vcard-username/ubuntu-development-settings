@@ -6,6 +6,7 @@
 > 3. I'm using __zsh(Oh My Zsh)__ as a shell. Ubuntu uses ___bash___ as standard. If you're using ___bash___, type *.bashrc* instead of *.zshrc*, else you're using ***zsh(ohmyzsh)***, type *.zshrc* instead of *.bashrc*
 
 ## **Let's start!**
+
 * [x] **Firs Update and Upgrade**
   * ```sudo apt update && sudo apt-get update```
   * ```sudo apt upgrade && sudo apt-get upgrade```
@@ -50,7 +51,7 @@
       * ```sudo apt update```
       * ```sudo apt install flatpak```
       * ```sudo apt install gnome-software-plugin-flatpak```
-      * ```latpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo```
+      * ```flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo```
       * ```sudo reboot```
     * [x] [Curl](https://curl.se/)
       * ```sudo apt install curl```
@@ -63,7 +64,7 @@
         * ```sudo apt update```
         * ```sudo apt install git```
       * *Git Global Configure*
-        * ```git config --global user.email "<your_email@example.com">```
+        * ```git config --global user.email "<your_email@example.com>"""```
         * ```git config --global user.name "<your_name>"```
     * [x] [Ohmyzsh](https://ohmyz.sh/)
       * [x] *Install*
@@ -92,7 +93,7 @@
           * ```git clone https://github.com/zpm-zsh/autoenv ~/.oh-my-zsh/custom/plugins/autoenv```
       * [x] *.zshrc configure*
         * > Reminder: Some of the contents in these settings are made according to my computer. Please have a look at the file first.
-        * [Zsh Configure (.zshrc)](https://github.com/vcard-username/ubuntu-development-settings/blob/master/configure/zshrc "Ohmyzsh configure settings")
+        * [Zsh Configure (.zshrc)](https://github.com/vcard-username/ubuntu-development-settings/blob/master/config/zshrc "Ohmyzsh configure settings")
       * [x] *.zshrc source*
         * ```source .zshrc```
         * ```sudo reboot```
@@ -106,33 +107,37 @@
       * _Node.js v10.x_
         * ```curl -fsSL https://deb.nodesource.com/setup_10.x | sudo -E bash -```
         * ```sudo apt-get install -y nodejs```
+      * _Yarn İnstall_
+        * ```curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -```
+        * ```echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list```
+        * ```sudo apt-get update && sudo apt-get install yarn```
     * [x] _[PostgreSQL](https://www.postgresql.org/download/linux/ubuntu/)_
-        * ```sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'```
-        * ```wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -```
-        * ```sudo apt-get update```
-        * ```sudo apt-get -y install postgresql postgresql-contrib```
-        * > if there is such an error : ```i386```
-          *  ```sudo gedit /etc/apt/sources.list.d/pgdg.list```
-          *  Delete this : ```deb http://apt.postgresql.org/pub/repos/apt/ focal-pgdg main```
-          *  Add this : ```deb [arch=amd64] http://apt.postgresql.org/pub/repos/apt/ focal-pgdg main```
-        * ```sudo systemctl is-active postgresql```
-        * > Output: ```active```
-        * ```sudo systemctl status postgresql```
-        * > Output: ```active service ...```
-        * ```sudo pg_isready```
-        * > Output: ```accepting```
-        * _Created DB and USER_
-          * ```sudo su - postgres```
-          * ```psql```
-          * ```CREATE USER <user> WITH PASSWORD '<password>';```
-          * ```CREATE DATABASE <db_name>;```
-          * ```GRANT ALL PRIVILEGES ON DATABASE tecdb to tec;```
-          * ```\q```
-          * ```exit```
-        * _[pgAdmin4 Install](https://www.pgadmin.org/download/pgadmin-4-apt/)_
-          * ```curl https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo apt-key add```
-          * ```sudo sh -c 'echo "deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update'```
-          * ```sudo apt install pgadmin4```  
+      * ```sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'```
+      * ```wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -```
+      * ```sudo apt-get update```
+      * > if there is such an error : ```i386```
+        * ```sudo gedit /etc/apt/sources.list.d/pgdg.list```
+        * Delete this : ```deb http://apt.postgresql.org/pub/repos/apt/ focal-pgdg main```
+        * Add this : ```deb [arch=amd64] http://apt.postgresql.org/pub/repos/apt/ focal-pgdg main```
+      * ```sudo apt-get -y install postgresql postgresql-contrib```
+      * ```sudo systemctl is-active postgresql```
+      * > Output: ```active```
+      * ```sudo systemctl status postgresql```
+      * > Output: ```active service ...```
+      * ```sudo pg_isready```
+      * > Output: ```accepting```
+      * _Created DB and USER_
+        * ```sudo su - postgres```
+        * ```psql```
+        * ```CREATE USER <user> WITH PASSWORD '<password>';```
+        * ```CREATE DATABASE <db_name>;```
+        * ```GRANT ALL PRIVILEGES ON DATABASE tecdb to tec;```
+        * ```\q```
+        * ```exit```
+      * _[pgAdmin4 Install](https://www.pgadmin.org/download/pgadmin-4-apt/)_
+        * ```curl https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo apt-key add```
+        * ```sudo sh -c 'echo "deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update'```
+        * ```sudo apt install pgadmin4```  
     * [x] [MongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/ "MongoDB install")
       * ```wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -```
       * ```echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list```
@@ -179,7 +184,7 @@
           * [Check My Links](https://chrome.google.com/webstore/detail/check-my-links/ojkcdipcgfaekbeaelaapakgnjflfglf)
           * [SimilarWeb - Traffic Rank & Website Analysis](https://chrome.google.com/webstore/detail/similarweb-traffic-rank-w/hoklmmgfnpapgjgcpechhaamimifchmp)
           * [Selenium](https://chrome.google.com/webstore/detail/selenium-ide/mooikfkahbdckldjjndioackbalphokd)
-          *  [Daily](https://chrome.google.com/webstore/detail/daily-20-source-for-busy/jlmpjdjjbgclbocgajdjefcidcncaied)
+          * [Daily](https://chrome.google.com/webstore/detail/daily-20-source-for-busy/jlmpjdjjbgclbocgajdjefcidcncaied)
         * [x] Other
           * [ZenMate (VPN)](https://chrome.google.com/webstore/detail/zenmate-free-vpn%E2%80%93best-vpn/fdcgdnkidjaadafnichfpabhfomcebme)
           * [Adblock Plus](https://chrome.google.com/webstore/detail/adblock-plus-free-ad-bloc/cfhdojbkjhnklbpkdaibdccddilifddb) or [AdBlock](https://chrome.google.com/webstore/detail/adblock-%E2%80%94-best-ad-blocker/gighmmpiobklfepjocnamgkkbiglidom)
@@ -191,22 +196,22 @@
     * [x] _[Chromium](https://www.chromium.org/)_
       * ```sudo apt install -y chromium-browser```
     * [x] _[Opera](https://www.opera.com)_
-      * ```sudo snap install opera``` 
+      * ```sudo snap install opera```
   * [x] IDE
     * [x] _[VS Code](https://code.visualstudio.com/download)_
       * *Install*
         * ```sudo snap install --classic code```
       * _Settings and Extensions_
-        * Install the _[Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync)_ extension on VS Code to synchronize the settings. 
-        * > Gist: ``` ```
+        * Install the _[Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync)_ extension on VS Code to synchronize the settings.
+        * > GistID: ```109ed292858a1fe6f13280168b901096```
     * [x] _[WebStorm](https://www.jetbrains.com/webstorm)_
       * ```sudo snap install webstorm --classic```
     * [x] _[PhpStorm](https://www.jetbrains.com/phpstorm)_
       * ```sudo snap install phpstorm --classic```
     * [x] _[PyCharm](https://www.jetbrains.com/pycharm)_
-      * ```sudo snap install pycharm-professional --classic``` 
+      * ```sudo snap install pycharm-professional --classic```
     * [x] _[GoLang](https://www.jetbrains.com/golang)_
-      * ```sudo snap install goland --classic```   
+      * ```sudo snap install goland --classic```
     * [x] _[Anaconda3](https://docs.anaconda.com/anaconda/install/linux/)_
       * ```sudo apt-get install libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6```
       * ```cd /tmp```
@@ -215,7 +220,7 @@
       * ```zsh anaconda.sh```
       * > Answer 'yes' to everything!
       * ```source .zshrc```
-      * > To remove the '(base)' text from the terminal: ```conda config --set auto_activate_base False ```
+      * > To remove the '(base)' text from the terminal: ```conda config --set auto_activate_base False```
   * [x] [Postman](https://www.postman.com/downloads/)
     * ```sudo snap install postman```
   * [x] [Robo3t(Robomongo)](https://robomongo.org/)
@@ -239,7 +244,7 @@
       * ```sudo apt update```
       * ```sudo apt install inkscape```
     * [Pinta](https://www.pinta-project.com/howto/installing-pinta)
-      * ```sudo add-apt-repository ppa:pinta-maintainers pinta-stable``` 
+      * ```sudo add-apt-repository ppa:pinta-maintainers/pinta-stable```
       * ```sudo apt-get update```
       * ```sudo apt-get install pinta```
     * [Gimp](https://www.gimp.org/)
@@ -273,13 +278,13 @@
     * or
     * ```sudo apt-get install gnome-tweak-tool```
   * [x] [Spotify](https://www.spotify.com/tr/download/linux/)
-    * ```sudo snap install spotify ```
+    * ```sudo snap install spotify```
   * [x] [Skype](https://www.skype.com/tr/get-skype/)
     * ```sudo snap install skype --classic```
   * [x] [Pomatez (Pomodoro)](https://snapcraft.io/pomatez)
-    * ```sudo snap install pomatez``` 
+    * ```sudo snap install pomatez```
   * [x] [Breaktimer](https://snapcraft.io/install/breaktimer/ubuntu)
-    * ```sudo snap install breaktimer``` 
+    * ```sudo snap install breaktimer```
   * [x] [Speedtest(Network Speed)](https://www.speedtest.net/apps/cli)
     * ```mkdir speedtest```
     * ```cd speedtest/```
@@ -287,3 +292,8 @@
     * ```rm -r speedtest.tar.gz```
     * ```cd ../```
     * ```sudo mv speedtest /opt/```
+  * [x] Hide Top Bar
+    * ```sudo apt update```
+    * ```sudo apt install gnome-shell-extension-autohidetopbar```
+    * Make the "ALT+F2" combination
+    * Type ```r``` and hit enter!
