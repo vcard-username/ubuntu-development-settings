@@ -66,6 +66,24 @@
       * *Git Global Configure*
         * ```git config --global user.email "<your_email@example.com>"""```
         * ```git config --global user.name "<your_name>"```
+      * *GitHub SSH*
+        * ```ssh-keygen -t rsa -b 4096 -C "<YOUR_GITHUB_EMAIL>"```
+        * > __Enter file in which to save the key:__ ```/home/<PC_NAME>/.ssh/<CREATE_SSH_NAME>```
+          * SAMPLE: ```/home/wod/.ssh/github```
+          * YOU HAVE TO SPECIFY THE FILE LOCATION! (/home/...)
+        * > Enter passphrase: ```<SSH_PASSWORD>```
+        * ```eval ssh-agent -s```
+        * ```ssh-add ~/.ssh/<SSH_NAME>```
+        * ```cat ~/.ssh/<SSH_NAME>.pub```
+        * > Copy to output
+        * > Add '.pub' to output with cat.
+        * Go to: https://github.com/settings/keys
+        * Click to "New SSH key"
+          * __Title__: A title you want.
+          * __Key__: The key you copied.
+            * > ```cat ~/.ssh/<SSH_NAME>.pub```
+        * Add SSH key
+        * ```ssh -T git@github.com```
     * [x] [Ohmyzsh](https://ohmyz.sh/)
       * [x] *Install*
         * ```sudo apt install zsh```
